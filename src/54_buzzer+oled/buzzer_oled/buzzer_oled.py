@@ -28,7 +28,7 @@ noteDurations = [ 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12
 volume = 1
 melody_num = 0
 oled.clear()
-
+ 
 oled.setLine(2, "Mario")          # Mario 출력
 oled.display()                    # OLED에 표시
 
@@ -44,7 +44,7 @@ for melody in melody_notes:
     buzzer.duty(0)                # 초기화
 
 buzzer.deinit()                   # 버저 자체를 초기화    
-
+ 
 # ==========================================================================================
 #
 #  (주)한국공학기술연구원 http://et.ketri.re.kr
