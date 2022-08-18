@@ -1,5 +1,5 @@
 # ******************************************************************************************
-# FileName     : 02._buzzer_melody_mario
+# FileName     : buzzer_oled
 # Description  : 부저를 이용하여 멜로디를 내고 
 #                OLED 모듈에 현재 멜로디를 표시(mario)
 # Author       : 이승찬
