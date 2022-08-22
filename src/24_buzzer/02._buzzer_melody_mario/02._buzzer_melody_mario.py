@@ -36,7 +36,12 @@ for melody in melody_notes:
     time.sleep(time_length)       # 소리를 내는 시간
     buzzer.duty(0)                # 초기화
 
-buzzer.deinit()                   # 버저 자체를 초기화    
+buzzer.deinit()                   # 버저 자체를 초기화   
+
+if __name__ == "__main__":
+    setup()
+    while True:
+        loop()
 
 # ==========================================================================================
 #
