@@ -34,9 +34,9 @@ def setup():
 
 # main loop
 def loop():
-    sensor_result = sensor.read()     # 조도 센서 값 저장                   
+    sensor_result = sensor.read()     # 조도 센서 값 저장
 
-                                    
+
     led_red.value(LOW)                # LED를 초기화
     led_blue.value(LOW)
     led_green.value(LOW)

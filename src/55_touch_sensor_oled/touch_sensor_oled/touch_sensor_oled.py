@@ -16,26 +16,26 @@ from ETboard.lib.OLED_U8G2 import *
 
 # global definition
 oled = oled_u8g2()
-pt = Pin(D6)                                               # 터치센서 핀 지정
+pt = Pin(D6)                               # 터치센서 핀 지정
 
 
 # setup
 def setup():
-    pt.init(Pin.IN)                                        # 터치센서 입력모드 설정
+    pt.init(Pin.IN)                        # 터치센서 입력모드 설정
     
     
 # main loop
 def loop():
-    oled.clear()                                           # OLED 스크린 모두 지우기
-    oled.setLine(2, "NO TOUCH ")                           # OLED 2번째 라인에 NO TOUCH 설정
+    oled.clear()                           # OLED 스크린 모두 지우기
+    oled.setLine(2, "NO TOUCH ")           # OLED 2번째 라인에 NO TOUCH 설정
     
     if pt.value() == HIGH:
         oled.clear()
-        oled.setLine(2, "TOUCH")                           # OLED 2번째 라인에 touch 설정
+        oled.setLine(2, "TOUCH")           # OLED 2번째 라인에 touch 설정
         
    
         
-    oled.display()                                         # OLED에 출력하기
+    oled.display()                         # OLED에 출력하기
     
     
 if __name__ == "__main__":
