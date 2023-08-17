@@ -17,18 +17,18 @@ from ETboard.lib.pin_define import *
 
 
 # global variable
-trigPin = Pin(D9)                                 # 초음파 송신부
-echoPin = Pin(D8)                                 # 초음파 수신부
+trigPin = Pin(D9)                                  # 초음파 송신부
+echoPin = Pin(D8)                                  # 초음파 수신부
 
 
 # setup
 def setup():
-    trigPin.init(Pin.OUT)                         # 초음파 송신부 출력 모드 설정하기
-    echoPin.init(Pin.IN)                          # 초음파 수신부 임력 모드 설정하기
+    trigPin.init(Pin.OUT)                          # 초음파 송신부 출력 모드 설정하기
+    echoPin.init(Pin.IN)                           # 초음파 수신부 임력 모드 설정하기
     
 
 #main loop
-def loop():                                       # 초음파 송신 후 수신부는 HIGH 상태로 대기
+def loop():                                        # 초음파 송신 후 수신부는 HIGH 상태로 대기
 
     trigPin.value(LOW)
     echoPin.value(LOW)
@@ -39,12 +39,12 @@ def loop():                                       # 초음파 송신 후 수신�
     
     
     
-    duration = time_pulse_us(echoPin, HIGH)       # echoPin 이 HIGH 를 유지한 시간 저장
+    duration = time_pulse_us(echoPin, HIGH)        # echoPin 이 HIGH 를 유지한 시간 저장
     
-    distance = 17 * duration / 1000               # HIGH 였을 때 시간(초음파 송수신 시간)을 기준으로 거리를 계산
+    distance = 17 * duration / 1000                # HIGH 였을 때 시간(초음파 송수신 시간)을 기준으로 거리를 계산
     
-    print(f'{distance : .2f}', "Cm")              # 거리를 화면에 출력해줌
-    time.sleep(0.2)                               # 0.2초 대기
+    print(f'{distance : .2f}', "Cm")               # 거리를 화면에 출력해줌
+    time.sleep(0.2)                                # 0.2초 대기
     
     
 if __name__ == "__main__":
