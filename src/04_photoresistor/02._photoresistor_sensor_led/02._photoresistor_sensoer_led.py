@@ -5,10 +5,12 @@
 # Created Date : 2021.08.13
 # Reference    :
 # Modified     : 2022.02.08 : SJI : 헤더 수정, 주석 수정
+# Modified     : 2023.08.17 : KTW : 코드 수정
 # ******************************************************************************************
 
 
 # import
+import time
 from machine import ADC, Pin
 from ETboard.lib.pin_define import *
 
@@ -32,7 +34,11 @@ def setup():
 
 # main loop
 def loop():
-    sensor_result = sensor.read()     # 조도 센서 값 저장
+    sensor_result = sensor.read()
+    print(sensor_result)
+    
+    time.sleep(0.2)
+    # 조도 센서 값 저장
 
     # LED를 초기화
     led_red.value(LOW)
@@ -40,16 +46,16 @@ def loop():
     led_green.value(LOW)
     led_yellow.value(LOW)
     
-    if sensor_result < 2000:          # 조도센서 값이 2000 미만 이라면 빨강 LED 켜기
+    if sensor_result < 2200:          # 조도센서 값이 2200 미만 이라면 빨강 LED 켜기
         led_red.value(HIGH)
         
-    if sensor_result < 1500:          # 조도센서 값이 1500 미만 이라면 파랑 LED 켜기
+    if sensor_result < 1800:          # 조도센서 값이 1800 미만 이라면 파랑 LED 켜기
         led_blue.value(HIGH)
         
-    if sensor_result < 1000:          # 조도센서 값이 1000 미만 이라면 초록 LED 켜기
+    if sensor_result < 1400:          # 조도센서 값이 1400 미만 이라면 초록 LED 켜기
         led_green.value(HIGH)
         
-    if sensor_result < 500:           # 조도센서 값이 500 미만 이라면 노랑 LED 켜기
+    if sensor_result < 1000:          # 조도센서 값이 1000 미만 이라면 노랑 LED 켜기
         led_yellow.value(HIGH)
 
 

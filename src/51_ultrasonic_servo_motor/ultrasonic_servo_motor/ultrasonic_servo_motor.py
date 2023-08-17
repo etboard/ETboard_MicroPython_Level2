@@ -4,7 +4,8 @@
 # Author       : 이승찬
 # Created Date : 2021.08.20
 # Reference    :
-# Modified     : 2022.02.08 : SJI : 헤더 수정, 주석 수정 
+# Modified     : 2022.02.08 : SJI : 헤더 수정, 주석 수정
+# Modified     : 2023.08.17 : KTW : 코드 수정 
 # ******************************************************************************************
 
 
@@ -16,17 +17,18 @@ from ETboard.lib.servo import Servo
 
 
 # global variable
-servo = Servo(Pin(D2))                           # 서보모터 핀 지정
-trigPin = Pin(D9)                                # 초음파 송신부 핀 지정
-echoPin = Pin(D8)                                # 초음파 수신부 핀 지정
+servo = Servo(Pin(D2))                                   # 서보모터 핀 지정
+trigPin = Pin(D9)                                        # 초음파 송신부 핀 지정
+echoPin = Pin(D8)                                        # 초음파 수신부 핀 지정
 
 
-# setup
+
+# set up
 def setup():
-    trigPin.init(Pin.OUT)                        # 초음파 송신부 출력모드 설정
-    echoPin.init(Pin.IN)                         # 초음파 수신부 입력모드 설정
+    trigPin.init(Pin.OUT)                                # 초음파 송신부 출력모드 설정
+    echoPin.init(Pin.IN)                                 # 초음파 수신부 입력모드 설정
     
-
+    
 # main loop
 def loop():
     trigPin.value(LOW)
@@ -35,17 +37,19 @@ def loop():
     trigPin.value(HIGH)
     time.sleep_ms(10)
     trigPin.value(LOW)
-
+    
     duration = time_pulse_us(echoPin, HIGH)
     distance = 17 * duration / 1000
     
-    if distance < 20:                           # 물체와의 거리가 20cm 미만이면 180도로 설정
-        servo.write_angle(180)
+    print(f'{distance : .2f}', "Cm")                     # 거리를 화면에 출력해줌
+    time.sleep(0.5)                                      # 0.5초 대기
     
-    if distance >= 20:                          # 물체와의 거리가 20cm 이상이면 0도로 설정
+    if distance < 20:                                    # 물체와의 거리가 20cm 미만이면 180도로 설정
+        servo.write_angle(180)
+        
+    if distance >= 20:                                   # 물체와의 거리가 20cm 이상이면 0도로 설정
         servo.write_angle(0)
         
-
 if __name__ == "__main__":
     setup()
     while True:

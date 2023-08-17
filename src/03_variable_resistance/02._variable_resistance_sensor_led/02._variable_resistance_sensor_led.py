@@ -7,10 +7,12 @@
 # Reference    :
 # Modified     : 2021.06.01 : LIJ : 헤더수정
 # Modified     : 2021.06.01 : SJI : 헤더수정, 주석 수정
+# Modified     : 2023.08.17 : KTW : 코드 수정
 # ******************************************************************************************
 
 
 # import
+import time
 from machine import ADC, Pin
 from ETboard.lib.pin_define import *
 
@@ -37,6 +39,9 @@ def setup():
 # main loop
 def loop():
     sensor_result = sensor.read()        # 가변저항 센서 값 저장
+    print(sensor_result)                 # 가변저항 센서 값 출력
+    
+    time.sleep(0.1)
 
     # LED 전부 초기화
     led_red.value(LOW)
@@ -61,7 +66,7 @@ if __name__ == "__main__":
     setup()
     while True:
         loop()
-
+        
 # ==========================================================================================
 #
 #  (주)한국공학기술연구원 http://et.ketri.re.kr

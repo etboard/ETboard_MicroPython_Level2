@@ -6,8 +6,8 @@
 # Created Date : 2021.08.13
 # Reference    :
 # Modified     : 2022.02.08 : SJI : 헤더 수정, 소스 크린징
+# Modified     : 2023.08.17 : KTW : 코드 수정
 # ******************************************************************************************
-
 
 # import
 import time
@@ -26,7 +26,7 @@ def setup():
 
 # main loop
 def loop():
-    sensor_result = 1023 - sensor.read() / 4      # 조도센서 값 저장
+    sensor_result = (4095 - sensor.read()) / 16   # 조도센서 값 저장
     print(sensor_result)                          # 조도센서 값 출력
     
     pwm2 = PWM(led_red, 500, int(sensor_result))
