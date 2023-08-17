@@ -8,7 +8,6 @@
 # Modified     : 2023.08.17 : KTW : 코드 수정 
 # ******************************************************************************************
 
-
 # import
 import time
 from machine import Pin, time_pulse_us
@@ -41,8 +40,6 @@ def loop():
     duration = time_pulse_us(echoPin, HIGH)
     distance = 17 * duration / 1000
     
-    print(f'{distance : .2f}', "Cm")                     # 거리를 화면에 출력해줌
-    time.sleep(0.5)                                      # 0.5초 대기
     
     if distance < 20:                                    # 물체와의 거리가 20cm 미만이면 180도로 설정
         servo.write_angle(180)
@@ -50,6 +47,9 @@ def loop():
     if distance >= 20:                                   # 물체와의 거리가 20cm 이상이면 0도로 설정
         servo.write_angle(0)
         
+    print(f'{distance : .2f}', "Cm")                     # 거리를 화면에 출력해줌
+    time.sleep(0.5)                                      # 0.5초 대기
+    
 if __name__ == "__main__":
     setup()
     while True:

@@ -39,12 +39,9 @@ def setup():
 # main loop
 def loop():
     sensor_result = sensor.read()        # 가변저항 센서 값 저장
-    print(sensor_result)                 # 가변저항 센서 값 출력
     
-    time.sleep(0.1)
-
-    # LED 전부 초기화
-    led_red.value(LOW)
+                    
+    led_red.value(LOW)                   # LED 전부 초기화
     led_blue.value(LOW)
     led_green.value(LOW)
     button_yellow.value(LOW)
@@ -60,6 +57,10 @@ def loop():
         
     if sensor_result > 2000:             # 가변저항 값이 2000 초과 초록 LED 켜기
         led_green.value(HIGH)
+        
+    print(sensor_result)                 # 가변저항 센서 값 출력
+    
+    time.sleep(0.1)
 
 
 if __name__ == "__main__":

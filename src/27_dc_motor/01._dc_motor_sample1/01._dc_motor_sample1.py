@@ -4,7 +4,7 @@
 # Author       : 손정인
 # Created Date : 2022.02.15
 # Reference    :
-# Modified     : 2023.08.17 소스코드 수정
+# Modified     : 2023.08.17 : KTW : 코드 수정
 # ******************************************************************************************
 
 # import
@@ -32,7 +32,9 @@ def loop() :
     led_blue.value(LOW)                                 # 파랑 LED 끄기
     time.sleep(5)                                       # 5초 기다리기
     
-    print("정지")
+    print("정지")                                       # 정지 출력
+    time.sleep(0.5)
+    
     led_red.value(LOW)                                  # 빨강 LED 끄기
     led_blue.value(LOW)                                 # 파랑 LED 끄기
     time.sleep(5)                                       # 5초 기다리기

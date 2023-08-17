@@ -39,8 +39,6 @@ def setup():
 # main loop
 def loop():
     
-    print(pt.value())                               # 터치센서 값 출력
-    time.sleep(0.1)                                 # 0.1초 대기
     
     led_red.value(LOW)                              # 빨강 LED 끄기
     led_blue.value(LOW)                             # 파랑 LED 끄기
@@ -53,8 +51,9 @@ def loop():
         led_green.value(HIGH)                       # 초록 LED 켜기
         led_yellow.value(HIGH)                      # 노랑 LED 켜기
         
+    print(pt.value())                               # 터치센서 값 출력
     time.sleep(0.1)                                 # 0.1초 대기
-    
+        
     
 if __name__ == "__main__":
     setup()

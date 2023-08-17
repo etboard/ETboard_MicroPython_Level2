@@ -31,9 +31,6 @@ def setup():
 # main loop
 def loop():
     sensor_result = sensor.read()                 # 조도 센서 값 저장
-    print(sensor_result)                          # 조도 센서 값 출력
-
-    time.sleep(0.2)                               # 0.2초 기다리기
     
     CDS_Value = sensor.read()                     # 조도센서 값 받기
     
@@ -47,6 +44,9 @@ def loop():
         
     oled.display()                                # OLED에 표시
     
+    print(sensor_result)                          # 조도 센서 값 출력
+
+    time.sleep(0.2)                               # 0.2초 기다리기
     
     
 if __name__ == "__main__":

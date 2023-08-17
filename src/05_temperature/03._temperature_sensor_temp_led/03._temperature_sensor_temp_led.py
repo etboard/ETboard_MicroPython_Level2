@@ -45,15 +45,12 @@ def setup():
 def loop():
     Vo = sensor.read()                                  # 가변저항 센서 값 저장
     sensor_result = sensor.read()                       # 온도센서 값 저장
-    
-    # 온도 센서 값을 이용하여 실제 온도 값 으로 변환
-    R2 = R1 * (4095.0 / Vo - 1.0)
+
+    R2 = R1 * (4095.0 / Vo - 1.0)                       # 온도 센서 값을 이용하여 실제 온도 값 으로 변환
     logR2 = math.log(R2)
     T = (1.0 / (c1 + c2*logR2 + c3*logR2*logR2*logR2))
     Tc = T - 273.15
-    
-    print(f'{Tc:0.2f}', "°C")                           # 온도 변환 값 출력
-    
+
     if Tc < 25:                                         # 온도가 25도 미만이면 파랑 LED 켜기
         led_red.value(LOW)
         led_blue.value(HIGH)
@@ -67,21 +64,22 @@ def loop():
         led_green.value(HIGH)
         led_yellow.value(LOW)
         print("초록온")
-        
+         
     if Tc >= 27 and Tc < 29:                            # 온도가 27도이상 29도 미만이면 노랑 LED 켜기
         led_red.value(LOW)
         led_blue.value(LOW)
         led_green.value(LOW)
         led_yellow.value(HIGH)
         print("노랑온")
-        
+     
     if Tc >= 29:                                        # 온도가 29도 이상이면 빨강 LED 켜기
         led_red.value(HIGH)
         led_blue.value(LOW)
         led_green.value(LOW)
         led_yellow.value(LOW)
         print("빨강온")
-        
+
+    print(f'{Tc:0.2f}', "°C")                           # 온도 변환 값 출력
     time.sleep(0.2)                                     # 0.2초 기다리기
 
 
@@ -89,6 +87,7 @@ if __name__ == "__main__":
     setup()
     while True:
         loop()
+
 
 # ==========================================================================================
 #

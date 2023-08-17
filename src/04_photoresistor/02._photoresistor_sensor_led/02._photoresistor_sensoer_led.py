@@ -1,6 +1,6 @@
 # ******************************************************************************************
 # FileName     : 02._photoresistor_sensoer_led
-# Description  : 조도 센서의 값에 따라 LED를 켜보보기
+# Description  : 조도 센서의 값에 따라 LED를 켜보기
 # Author       : 이승찬
 # Created Date : 2021.08.13
 # Reference    :
@@ -34,14 +34,10 @@ def setup():
 
 # main loop
 def loop():
-    sensor_result = sensor.read()
-    print(sensor_result)
-    
-    time.sleep(0.2)
-    # 조도 센서 값 저장
+    sensor_result = sensor.read()     # 조도 센서 값 저장                   
 
-    # LED를 초기화
-    led_red.value(LOW)
+                                    
+    led_red.value(LOW)                # LED를 초기화
     led_blue.value(LOW)
     led_green.value(LOW)
     led_yellow.value(LOW)
@@ -57,6 +53,10 @@ def loop():
         
     if sensor_result < 1000:          # 조도센서 값이 1000 미만 이라면 노랑 LED 켜기
         led_yellow.value(HIGH)
+        
+    print(sensor_result)              # 조도 센서 값 출력
+    
+    time.sleep(0.2) 
 
 
 if __name__ == "__main__":

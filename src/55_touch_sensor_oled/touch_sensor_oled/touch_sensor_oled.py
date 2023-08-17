@@ -27,7 +27,7 @@ def setup():
 # main loop
 def loop():
     oled.clear()                                           # OLED 스크린 모두 지우기
-    oled.setLine(2, "NO TOUCH ")
+    oled.setLine(2, "NO TOUCH ")                           # OLED 2번째 라인에 NO TOUCH 설정
     
     if pt.value() == HIGH:
         oled.clear()
