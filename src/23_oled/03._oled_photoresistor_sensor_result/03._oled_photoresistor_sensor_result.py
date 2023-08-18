@@ -5,39 +5,50 @@
 # Created Date : 2021.08.18
 # Reference    :
 # Modified     : 2022.02.08 : SJI : 헤더 수정, 주석 수정, 소스 크린징
+# Modified     : 2023.08.17 : KTW : 코드 수정
 # ******************************************************************************************
 
 
 # import
+import time
 from machine import Pin, ADC
 from ETboard.lib.OLED_U8G2 import *
 
 
-# global variable
+
+#global variable
 oled = oled_u8g2()
 sensor = ADC(Pin(A1))                      # 조도센서 핀 지정
 
 
+
 # setup
 def setup():
-    sensor.atten(ADC.ATTN_11DB)            # 조도센서
-
-
+    sensor.atten(ADC.ATTN_11DB)            # 조도센서 입력 모드 설정 
+    
+    
+    
 # main loop
 def loop():
+    sensor_result = sensor.read()          # 조도 센서 값 저장
+    
     CDS_Value = sensor.read()              # 조도센서 값 받기
-
-    if CDS_Value >= 700:                   # 조도센서의 값이 700 이상이면
+    
+    if CDS_Value >= 1700:                  # 조도센서의 값이 1700 이상이면
         oled.clear()                       # oled 내용을 지우기
-        oled.setLine(2, "Morning !")       #  Morning ! 출력하기
-
-    if CDS_Value < 700:                    # 조도센서의 값이 700 미만이면
+        oled.setLine(2, "Morning !")       # Morning ! 출력하기
+        
+    if CDS_Value < 1700:                   # 조도센서의 값이 1700 미만이면
         oled.clear()                       # oled 내용을 지우기
         oled.setLine(2, "Night !")         # Night ! 출력하기
-
+        
     oled.display()                         # OLED에 표시
+    
+    print(sensor_result)                   # 조도 센서 값 출력
 
-
+    time.sleep(0.2)                        # 0.2초 기다리기
+    
+    
 if __name__ == "__main__":
     setup()
     while True:
