@@ -45,8 +45,8 @@ def loop():                                        # 초음파 송신 후 수신
     
     print(f'{distance : .2f}', "Cm")               # 거리를 화면에 출력해줌
     time.sleep(0.2)                                # 0.2초 대기
-    
-    
+
+
 if __name__ == "__main__":
     setup()
     while True:

@@ -34,13 +34,13 @@ led_yellow = Pin(D5)                                      # 노랑 LED 핀 지�
 # setup
 def setup():
     sensor.atten(ADC.ATTN_11DB)                           # 온도센서 입력모드 설정
-    
+
     led_red.init(Pin.OUT)                                 # 빨간 LED 출력모드 설정
     led_blue.init(Pin.OUT)                                # 파란 LED 출력모드 설정
     led_green.init(Pin.OUT)                               # 초록 LED 출력모드 설정
     led_yellow.init(Pin.OUT)                              # 노랑 LED 출력모드 설정
-    
-    
+
+
 #main loop
 def loop():
     Vo = sensor.read()                                    # 가변저항 센서 값 저장
@@ -64,14 +64,14 @@ def loop():
         led_green.value(HIGH)
         led_yellow.value(LOW)
         print("초록온")
-         
+  
     if Tc >= 27 and Tc < 29:                              # 온도가 27도이상 29도 미만이면 노랑 LED 켜기
         led_red.value(LOW)
         led_blue.value(LOW)
         led_green.value(LOW)
         led_yellow.value(HIGH)
         print("노랑온")
-     
+
     if Tc >= 29:                                          # 온도가 29도 이상이면 빨강 LED 켜기
         led_red.value(HIGH)
         led_blue.value(LOW)

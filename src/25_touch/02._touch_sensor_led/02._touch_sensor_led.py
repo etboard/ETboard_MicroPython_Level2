@@ -29,13 +29,13 @@ led_yellow = Pin(D5)           # 노랑 LED 핀 지정
 # setup
 def setup():
     pt.init(Pin.IN)            # 터치센서 입력모드 설정
-    
+
     led_red.init(Pin.OUT)      # 빨강 LED 출력모드 설정
     led_blue.init(Pin.OUT)     # 파랑 LED 출력모드 설정
     led_green.init(Pin.OUT)    # 초록 LED 출력모드 설정
     led_yellow.init(Pin.OUT)   # 노랑 LED 출력모드 설정
-    
-    
+
+
 # main loop
 def loop():
     
@@ -53,8 +53,8 @@ def loop():
         
     print(pt.value())          # 터치센서 값 출력
     time.sleep(0.1)            # 0.1초 대기
-    
-    
+
+
 if __name__ == "__main__":
     setup()
     while True:

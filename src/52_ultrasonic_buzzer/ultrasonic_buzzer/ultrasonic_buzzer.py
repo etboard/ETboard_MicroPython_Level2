@@ -25,11 +25,11 @@ PinD2 = Pin(D2)
 # setup
 def setup():
     
-    trigPin.init(Pin.OUT)                           # 부저를 출력모드로 설정                         
+    trigPin.init(Pin.OUT)                           # 부저를 출력모드로 설정
     echoPin.init(Pin.IN)
     PinD2.init(Pin.OUT)      
-    
-    
+
+
 # main loop
 def loop():
     
@@ -47,7 +47,7 @@ def loop():
     print(f'{distance : .2f}', "cm")                # 거리를 화면에 출력해줌
     time.sleep_ms(100)                              # 0.1초 대기
     
-                                                                                                  
+
     if distance < 15:                               # 거리가 15cm 미만이면 부저에 소리내기
         for i in range(80):                         # 초음파센서 값에 따라 부저 제어
             PinD2.value(HIGH)
