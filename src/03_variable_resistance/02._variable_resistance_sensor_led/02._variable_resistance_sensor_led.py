@@ -39,8 +39,8 @@ def setup():
 # main loop
 def loop():
     sensor_result = sensor.read()        # 가변저항 센서 값 저장
-    
-                    
+
+               
     led_red.value(LOW)                   # LED 전부 초기화
     led_blue.value(LOW)
     led_green.value(LOW)

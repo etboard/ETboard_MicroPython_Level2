@@ -25,7 +25,7 @@ echoPin = Pin(D8)                                  # 초음파 수신부
 def setup():
     trigPin.init(Pin.OUT)                          # 초음파 송신부 출력 모드 설정하기
     echoPin.init(Pin.IN)                           # 초음파 수신부 임력 모드 설정하기
-    
+ 
 
 #main loop
 def loop():                                        # 초음파 송신 후 수신부는 HIGH 상태로 대기
@@ -45,8 +45,8 @@ def loop():                                        # 초음파 송신 후 수신
     
     print(f'{distance : .2f}', "Cm")               # 거리를 화면에 출력해줌
     time.sleep(0.2)                                # 0.2초 대기
-    
-    
+
+
 if __name__ == "__main__":
     setup()
     while True:
