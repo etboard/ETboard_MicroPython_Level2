@@ -25,7 +25,7 @@ PinD2 = Pin(D2)
 # setup
 def setup():
     
-    trigPin.init(Pin.OUT)                           # 부저를 출력모드로 설정                         
+    trigPin.init(Pin.OUT)                           # 부저를 출력모드로 설정
     echoPin.init(Pin.IN)
     PinD2.init(Pin.OUT)      
 

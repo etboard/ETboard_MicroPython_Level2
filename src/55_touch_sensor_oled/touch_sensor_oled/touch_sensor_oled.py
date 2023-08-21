@@ -22,8 +22,8 @@ pt = Pin(D6)                               # 터치센서 핀 지정
 # setup
 def setup():
     pt.init(Pin.IN)                        # 터치센서 입력모드 설정
-    
-    
+
+
 # main loop
 def loop():
     oled.clear()                           # OLED 스크린 모두 지우기

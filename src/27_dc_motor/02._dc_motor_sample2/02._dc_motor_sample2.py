@@ -43,8 +43,8 @@ def loop() :
     led_red.value(LOW)                         # 빨강 LED 끄기
     led_blue.value(LOW)                        # 파랑 LED 끄기
     time.sleep(5)                              # 5초 기다리기
-    
-    
+
+
 if __name__ == "__main__" :
     setup()
     while True :

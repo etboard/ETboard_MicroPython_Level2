@@ -40,12 +40,11 @@ def setup():
 def loop():
     sensor_result = sensor.read()        # 가변저항 센서 값 저장
 
-               
     led_red.value(LOW)                   # LED 전부 초기화
     led_blue.value(LOW)
     led_green.value(LOW)
     button_yellow.value(LOW)
-    
+
     if sensor_result > 500:              # 가변저항 값이 500 초과 빨강 LED 켜기
         led_red.value(HIGH)
         
@@ -67,7 +66,7 @@ if __name__ == "__main__":
     setup()
     while True:
         loop()
-        
+
 # ==========================================================================================
 #
 #  (주)한국공학기술연구원 http://et.ketri.re.kr
