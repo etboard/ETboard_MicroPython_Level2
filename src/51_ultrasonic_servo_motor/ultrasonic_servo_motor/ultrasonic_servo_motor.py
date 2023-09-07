@@ -4,9 +4,9 @@
 # Author       : 이승찬
 # Created Date : 2021.08.20
 # Reference    :
-# Modified     : 2022.02.08 : SJI : 헤더 수정, 주석 수정 
+# Modified     : 2022.02.08 : SJI : 헤더 수정, 주석 수정
+# Modified     : 2023.08.17 : KTW : 코드 수정 
 # ******************************************************************************************
-
 
 # import
 import time
@@ -41,10 +41,12 @@ def loop():
     
     if distance < 20:                           # 물체와의 거리가 20cm 미만이면 180도로 설정
         servo.write_angle(180)
-    
+
     if distance >= 20:                          # 물체와의 거리가 20cm 이상이면 0도로 설정
         servo.write_angle(0)
-        
+   
+    print(f'{distance : .2f}', "Cm")            # 거리를 화면에 출력해줌
+    time.sleep(0.5)                             # 0.5초 대기
 
 if __name__ == "__main__":
     setup()

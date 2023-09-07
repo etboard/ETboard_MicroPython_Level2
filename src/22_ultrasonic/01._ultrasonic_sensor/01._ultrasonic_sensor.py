@@ -43,7 +43,7 @@ def loop():
     
     # 초음파센서 값을 출력
     print(f'{distance : .2f}', "Cm")               # 거리를 화면에 출력해줌
-    time.sleep(1)                                  # 1초 대기
+    time.sleep(0.5)                                # 1초 대기
 
 
 if __name__ == "__main__":
